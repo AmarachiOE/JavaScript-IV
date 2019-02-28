@@ -75,11 +75,11 @@ class Student extends Person {
     this.favSubjects = studentAttrs.favSubjects;
   }
   listsSubjects() {
-    console.log(
-      `Their favorite subjects are ${this.favSubjects[0]}, ${
-        this.favSubjects[1]
-      }, and ${this.favSubjects[2]}.`
-    );
+    console.log(`Their favorite subjects are: ${this.favSubjects.join(", ")}.`);
+    //   `Their favorite subjects are ${this.favSubjects[0]}, ${
+    //     this.favSubjects[1]
+    //   }, and ${this.favSubjects[2]}.`);
+    // used .join() instead of this
   }
 
   PRAssignment(subject) {
@@ -281,12 +281,8 @@ console.log(amarachi.className); // web18
 console.log(amarachi.favSubjects); // ["HTML", "CSS", "Javascript"]
 console.log(amarachi.PRAssignment("User Interface II")); // Amarachi has submitted a PR for User Interface II.
 console.log(amarachi.sprintChallenge("User Interface and Git")); // Amarachi has begun sprint challenge on User Interface and Git.
-console.log(amarachi.listsSubjects()); // Their favorite subjects are Responsive Design, User Interface II, and Javascript Fundamentals.
-console.log(leslie.listsSubjects()); // Their favorite subjects are iOS, CSS, and Flexbox Module.
-console.log(ade.listsSubjects()); // Their favorite subjects are HTML, Javascript I, and JavascriptII.
+console.log(amarachi.listsSubjects()); // Their favorite subjects are: Responsive Design, User Interface II, Javascript Fundamentals.
+console.log(leslie.listsSubjects()); // Their favorite subjects are: iOS, CSS, Flexbox Module.
+console.log(ade.listsSubjects()); // Their favorite subjects are: HTML, Javascript I, JavascriptII.
 
-// try using spread operator
-// console.log(amarachi.listsSubjects(...favSubjects));
-// functionName.call(object,...favSubjects)
-// console.log(amarachi.listsSubjects(favSubjects));
-// console.log(amarachi.listsSubjects.apply(favSubjects[0], favSubjects[1], favSubjects[2]));
+
