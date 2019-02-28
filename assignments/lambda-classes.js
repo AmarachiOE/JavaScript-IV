@@ -93,6 +93,14 @@ class Student extends Person {
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}.`);
   }
+
+  graduate() {
+      if (this.grade > 70) {
+          console.log (`${this.name} is ready to graduate!`);
+      } else {
+        console.log ("Continue grading their assignments.");
+      }
+  }
 }
 
 /* 
@@ -209,7 +217,7 @@ const ade = new Student({
   gender: "male",
   previousBackground: "International Relations",
   className: "web16",
-  grade: 97,
+  grade: 67,
   favSubjects: ["HTML", "Javascript I", "JavascriptII"]
 });
 
@@ -297,3 +305,6 @@ console.log(ade.listsSubjects()); // Their favorite subjects are: HTML, Javascri
 console.log(josh.gradeRandom(amarachi));
 console.log(chase.gradeRandom(ade));
 console.log(ryan.gradeRandom(leslie));
+console.log(amarachi.graduate()); // Amarachi is ready to graduate!
+console.log(ade.graduate()); // Continue grading their assignments.
+console.log(leslie.graduate()); // Leslie is ready to graduate!
