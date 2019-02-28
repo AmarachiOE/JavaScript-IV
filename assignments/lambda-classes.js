@@ -83,14 +83,18 @@ class Student extends Person {
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects;
   }
-  listsSubjects(subject1, subject2, subject3) {
+  listsSubjects() {
     console.log(
-      `Their favorite subjects are ${subject1}, ${subject2}, and ${subject3}.`
+      `Their favorite subjects are ${this.favSubjects[0]}, ${
+        this.favSubjects[1]
+      }, and ${this.favSubjects[2]}.`
     );
   }
+
   PRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}.`);
   }
+
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}.`);
   }
@@ -142,6 +146,20 @@ const nelly = new Person({
   gender: "female"
 });
 
+const mike = new Person({
+  name: "Mike",
+  age: 65,
+  location: "Spanaway",
+  gender: "male"
+});
+
+const nnenna = new Person({
+  name: "Nnenna",
+  age: 26,
+  location: "Spanaway",
+  gender: "female"
+});
+
 const fred = new Instructor({
   name: "Fred",
   age: 37,
@@ -150,6 +168,26 @@ const fred = new Instructor({
   specialty: "Front-end",
   favLanguage: "JavaScript",
   catchPhrase: `Don't forget the homies`
+});
+
+const josh = new Instructor({
+  name: "Josh",
+  age: 38,
+  location: "Lambdaland",
+  gender: "male",
+  specialty: "Everything",
+  favLanguage: "JavaScript",
+  catchPhrase: `Welcome to another exciting day at LAMBDA School`
+});
+
+const ryan = new Instructor({
+  name: "Ryan",
+  age: 35,
+  location: "Lambdaville",
+  gender: "male",
+  specialty: "Prep Tutorials",
+  favLanguage: "CSS",
+  catchPhrase: `Follow along in CodePen`
 });
 
 const amarachi = new Student({
@@ -174,13 +212,11 @@ const chase = new ProjectManager({
   favInstructor: "Josh"
 });
 
-
 // TESTING
 //person
 console.log(nelly.name); // Nelly
 console.log(nelly.speak()); // Hello my name is Nelly, I am from Spanaway.
-
-
+console.log(mike.speak());
 
 //instructor
 console.log(fred.name); // Fred
@@ -189,7 +225,6 @@ console.log(fred.specialty); // Front-end
 console.log(fred.catchPhrase);
 console.log(fred.demo("javascript")); // Today we are learning about javascript!
 console.log(fred.grade(amarachi, "javascript fundamentals")); // Amarachi receives a perfect score on javascript!!!
-
 
 //PM
 console.log(chase.name); // Chase
@@ -203,12 +238,20 @@ console.log(chase.grade(amarachi, "responsive design")); // Amarachi receives a 
 console.log(chase.standUp("web18_chase")); // Chase announces to web18_chase, @channel standy times!
 console.log(chase.debugsCode(amarachi, "Applied Javascript")); // Chase debugs Amarachi's code on Applied Javascript.
 
-
 //student
 console.log(amarachi.name); //Amarachi
 console.log(amarachi.speak()); //Hello my name is Amarachi, I am from Oakland.
 console.log(amarachi.previousBackground); // Public Health
 console.log(amarachi.className); // web18
 console.log(amarachi.favSubjects); // ["HTML", "CSS", "Javascript"]
+console.log(amarachi.PRAssignment("User Interface II")); // Amarachi has submitted a PR for User Interface II.
+console.log(amarachi.sprintChallenge("User Interface and Git")); // Amarachi has begun sprint challenge on User Interface and Git.
+console.log(amarachi.listsSubjects()); // Their favorite subjects are HTML, CSS, and Javascript.
+
+// try using spread operator
+
+// console.log(amarachi.listsSubjects(...favSubjects));
+// functionName.call(object,...favSubjects)
+
 // console.log(amarachi.listsSubjects(favSubjects));
 // console.log(amarachi.listsSubjects.apply(favSubjects[0], favSubjects[1], favSubjects[2]));
