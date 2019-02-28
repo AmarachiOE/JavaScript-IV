@@ -50,6 +50,9 @@ class Instructor extends Person {
     //maybe remove student?
     console.log(`${student.name} receives a perfect score on ${subject}!!!`);
   }
+  gradeRandom(student) {
+      return Math.ceil((student.grade) + (Math.random() * 10));
+  }
 }
 
 /* 
@@ -73,6 +76,7 @@ class Student extends Person {
     this.previousBackground = studentAttrs.previousBackground;
     this.className = studentAttrs.className;
     this.favSubjects = studentAttrs.favSubjects;
+    this.grade = studentAttrs.grade;
   }
   listsSubjects() {
     console.log(`Their favorite subjects are: ${this.favSubjects.join(", ")}.`);
@@ -179,6 +183,7 @@ const amarachi = new Student({
   gender: "female",
   previousBackground: "Public Health",
   className: "web18",
+  grade: 91,
   favSubjects: [
     "Responsive Design",
     "User Interface II",
@@ -193,6 +198,7 @@ const leslie = new Student({
   gender: "female",
   previousBackground: "Accounting",
   className: "web17",
+  grade: 87,
   favSubjects: ["iOS", "CSS", "Flexbox Module"]
 });
 
@@ -203,6 +209,7 @@ const ade = new Student({
   gender: "male",
   previousBackground: "International Relations",
   className: "web16",
+  grade: 97,
   favSubjects: ["HTML", "Javascript I", "JavascriptII"]
 });
 
@@ -286,3 +293,7 @@ console.log(leslie.listsSubjects()); // Their favorite subjects are: iOS, CSS, F
 console.log(ade.listsSubjects()); // Their favorite subjects are: HTML, Javascript I, JavascriptII.
 
 
+// STRETCH:
+console.log(josh.gradeRandom(amarachi));
+console.log(chase.gradeRandom(ade));
+console.log(ryan.gradeRandom(leslie));
